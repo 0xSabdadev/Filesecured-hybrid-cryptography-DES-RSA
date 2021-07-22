@@ -141,8 +141,8 @@ public class RsaFunctionClass {
 						dirname + "/" + "Key-" + filename.substring(0, filename.lastIndexOf(".")) + "Copy" + ".txt",
 						"rw");
 				out.seek(0);
-				out.writeBytes("Encrypted Key untuk file : " + filename + " di Generated pada: " + dt
-						+ "\n\nNote: Ini BUKAN (private) Key rahasia, ini cuman Cipher text dari Enkripsi RSA (Encrypted KEY)\nTIDAK Perlu Merahasiakannya:)\n\n"
+				out.writeBytes("Encrypted Key for File : " + filename + " Generated on: " + dt
+						+ "\n\nNote: This is NOT the Secret(private) Key, but Just the RSA Encrypted Cipher text\nNo Need To keep It a secret:)\n\n"
 						+ Enkey);
 				out.close();
 				returnname = dirname + "/" + "Key-" + filename.substring(0, filename.lastIndexOf(".")) + "Copy"
@@ -150,8 +150,8 @@ public class RsaFunctionClass {
 			} else {
 				RandomAccessFile out = new RandomAccessFile(dirname + "/" + name, "rw");
 				out.seek(0);
-				out.writeBytes("Encrypted Key untuk file : " + filename + " di Generated pada: " + dt
-						+ "\n\nNote: Ini BUKAN (private) Key rahasia, ini cuman Cipher text dari Enkripsi RSA (Encrypted KEY)\nTIDAK Perlu Merahasiakannya:)\n\n"
+				out.writeBytes("Encrypted Key for File : " + filename + " Generated on: " + dt
+						+ "\n\nNote: This is NOT the Secret(private) Key, but Just the RSA Encrypted Cipher text\nNo Need To keep It a secret:)\n\n"
 						+ Enkey);
 				out.close();
 				returnname = dirname + "/" + name;

@@ -228,7 +228,6 @@ public class FunctionSet {
 			sourceCh = new FileInputStream(src).getChannel();
 			destCh = new FileOutputStream(dst).getChannel();
 			destCh.transferFrom(sourceCh, 0, sourceCh.size());
-
 		} finally {
 			sourceCh.close();
 			destCh.close();

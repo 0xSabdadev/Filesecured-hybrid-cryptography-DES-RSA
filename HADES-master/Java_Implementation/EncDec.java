@@ -64,13 +64,13 @@ public class EncDec {
 			File f = new File("TempFiles/cp-temp.hades");
 			f.delete();
 
-			System.out.println("Apakah kamu mau menghapus " + filename + "?\nEnter 1 for yes and 2 for No:");
+			System.out.println("Do you want to delete " + filename + "?\nEnter 1 for yes and 2 for No:");
 			int opt = 0;
 			if (inputscanner.hasNextInt()) {
 				opt = inputscanner.nextInt();
 				FunctionSet.delencf(filename, opt);
 			} else
-				System.out.println("Opsi Salah!");
+				System.out.println("Wrong Option!");
 			// release resources
 			in.close();
 			out.close();
