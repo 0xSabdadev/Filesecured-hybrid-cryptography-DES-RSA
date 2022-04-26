@@ -2,26 +2,26 @@
 <%@ page import="hadesED.*"%>
 <%@ page import ="java.sql.*" %>
 <%@ page import="java.math.BigInteger"%>
-			
+
 <%
 if ((request.getParameter("pkey") == null) || (request.getParameter("pkey") == "")) 
 { %>
-	<script language="javascript">
+<script language="javascript">
 	alert("Session Expired!");
-	</script>
-	<% 	out.println("<p><b><h2>Your Session Expired! Page will auto refresh</h2></b><p>");
+</script>
+<% 	out.println("<p><b><h2>Your Session Expired! Page will auto refresh</h2></b><p>");
 		response.setHeader("Refresh", "1;url=encUpld.jsp");
 	}
 	else{
 		if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) 
 		{ %>
-			<jsp:include page="loginpage.jsp" />
-		<%} 
+<jsp:include page="loginpage.jsp" />
+<%} 
 		else 
 		{
 		%>
 
-		<%
+<%
 		String filename=(String) session.getAttribute("fname");
 		String orginalName=filename;
 		//filename=filename.replaceAll(" ", "-");		//remove spaces if any
@@ -68,15 +68,16 @@ if ((request.getParameter("pkey") == null) || (request.getParameter("pkey") == "
 					filename=filename.substring(0,filename.lastIndexOf("."));
 								    
 			%>
-			<jsp:include page="header.jsp" />
-			<div class="fullbody">
-			<html>
-			<head>
-			<title>HADES Encryption Successful</title>
-			<link rel='stylesheet' type='text/css' href='stylesheet.css'/>
-			</head>
+<jsp:include page="header.jsp" />
+<div class="fullbody">
+	<html>
 
-			<%
+	<head>
+		<title>HADES Encryption Successful</title>
+		<link rel='stylesheet' type='text/css' href='stylesheet.css' />
+	</head>
+
+	<%
 			String EncFname = filename+".hades";
 			session.setAttribute("Efname",EncFname);
 
@@ -86,38 +87,38 @@ if ((request.getParameter("pkey") == null) || (request.getParameter("pkey") == "
 			session.setAttribute("Kdirname",keyloc);
 
 			%>
-			<center>
-			<br /><br />File ENCRYPTION Successful! Encrypted File: <b>"<%=EncFname%>"</b>. <br/><br/>
-			Your Encrypted-Key (Cipher Text) <b>"<%=keyfile%>"</b> Generated Successfully!
-			<br/><br/>
+	<center>
+		<br /><br />File ENCRYPTION Successful! Encrypted File: <b>"<%=EncFname%>"</b>. <br /><br />
+		Your Encrypted-Key (Cipher Text) <b>"<%=keyfile%>"</b> Generated Successfully!
+		<br /><br />
 
-			<form action="FileKeyDwnld.jsp" method="post" style="display: inline;">
+		<form action="FileKeyDwnld.jsp" method="post" style="display: inline;">
 			<br />Download Your Encrypted Files:<br /><br />
 			<input type="radio" name="Dbutton" value="Efile" checked>Encrypted File "<%=EncFname%>"
 			<br />
 			<input type="radio" name="Dbutton" value="Kfile">Encrypted-Key-File "<%=keyfile%>"
-			<br/> <br />
-			 <input type="submit" value="Download">
-			</form>
-			
-			<form action="sendfile.jsp" method="post" style="display: inline;">
-			<input type="submit" value="Send as Message to Another User">	<br/> <br />		
-			</form>
-			</center>
+			<br /> <br />
+			<input type="submit" value="Download">
+		</form>
+
+		<form action="sendfile.jsp" method="post" style="display: inline;">
+			<input type="submit" value="Send as Message to Another User"> <br /> <br />
+		</form>
+	</center>
 
 
-			</html>
-			</div>
-			<jsp:include page="footer.jsp" />
-		<% }		//close if(pub key)
+	</html>
+</div>
+<jsp:include page="footer.jsp" />
+<% }		//close if(pub key)
 
 		else
 		{
 		%>
-		<script language="javascript">
-		alert("Not a Valid Public key!");
-		</script>
-		<% 	out.println("<p><b><h2>You have Provided an Invalid Public Key!</h2></b><p>");
+<script language="javascript">
+	alert("Not a Valid Public key!");
+</script>
+<% 	out.println("<p><b><h2>You have Provided an Invalid Public Key!</h2></b><p>");
 			response.setHeader("Refresh", "1;url=encUpld.jsp");
 		}
 
@@ -132,5 +133,3 @@ if ((request.getParameter("pkey") == null) || (request.getParameter("pkey") == "
 
 }	//close(else) --session expiry
 %>
-
-
